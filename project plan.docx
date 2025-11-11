@@ -1,0 +1,31 @@
+Web & Script Assignment 3 - Project Plan
+
+Project: DailyMate
+
+Description: An online platform designed to help users organize, track and manage their daily tasks efficiently, Users can create tasks for the day, categorize them into different categories such as personal, school and work, mark tasks as complete, edit details or delta tasks fully. The focus of the app is on improving productivity and managing daily routines. 
+
+Features: 
+    * User friendly home page with introduction and navigation details
+    * CRUD fro functionality of daily tasks
+    * Responsive design by Bootstrap
+    * MangoDB for storing data
+
+Page descriptions:
+  * Home page:
+      - First page user sees, introduced DailyMate and guides users to start tracking
+  * Task list page:
+      - Displays all tasks stored in the database (READ)
+      - Allows you to edit or delete task
+  * Add task page: 
+      - Allows users to create a new task for the day (Create)
+          - Form fields: 
+                - Task tile
+                - Description
+                - Due date/ end date
+                - Category
+          - Buttons: 
+                - Save task
+                - Cancel task 
+  * Edit task page:
+        - Allows user to update an existing task
+
