@@ -28,11 +28,6 @@ router.get('/products', function(req, res, next) {
   res.render('index', { title: 'Products',displayName: req.user?req.user.displayName:"" });
 });
 
-/* GET Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', { title: 'Services',displayName: req.user?req.user.displayName:"" });
-});
-
 /* GET home page. */
 router.get('/contact', function(req, res, next) {
   res.render('index', { title: 'Contact us',displayName: req.user?req.user.displayName:"" });
@@ -73,7 +68,7 @@ router.post('/login', function(req,res,next){
     {
       return next(err);
     }
-    return res.redirect("/books")
+    return res.redirect("/Hobbies")
     })
   })(req,res,next)
 });

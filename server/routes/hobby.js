@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-// connect to our book model
+// connect to our hobby model
 let Book = require('../model/book');
 function requireAuth(req,res,next)
 {
@@ -15,16 +15,16 @@ function requireAuth(req,res,next)
 router.get('/',async(req,res,next)=>{
     try{
         const BookList = await Book.find();
-        res.render('Books/list',{
-            title:'Books',
-            BookList:BookList,
+        res.render('Hobbies/list',{
+            title:'Hobbies',
+            hobbyList:hobbyList,
             displayName: req.user?req.user.displayName:""
         })
     }
     catch(err)
     {
         console.log(err);
-        res.render('Books/list',
+        res.render('Hobbies/list',
             {
                 error:'Error on the Server'
             }
@@ -35,15 +35,15 @@ router.get('/',async(req,res,next)=>{
 router.get('/add',async(req,res,next)=>{
     try
     {
-        res.render('Books/add',{
-            title:'Add Book',
+        res.render('Hobbies/add',{
+            title:'Add Hobby',
             displayName: req.user?req.user.displayName:""
         });
     }
     catch(err)
     {
         console.log(err);
-        res.render('Books/list',
+        res.render('Hobbies/list',
             {
                 error:'Error on the Server'
             }
@@ -55,20 +55,20 @@ router.post('/add',async(req,res,next)=>{
     try
     {
         let newBook = Book({
-            "name":req.body.name,
-            "author":req.body.author,
-            "published":req.body.published,
+            "hobbyname":req.body.hobbyname,
+            "category":req.body.category,
             "description":req.body.description,
-            "price":req.body.price
+            "averagecost":req.body.averagecost,
+            "interactiontype":req.body.interactiontype
         })
         Book.create(newBook).then(()=>{
-            res.redirect('/books')
+            res.redirect('/Hobbies')
         });
     }
      catch(err)
     {
         console.log(err);
-        res.render('Books/list',
+        res.render('Hobbiess/list',
             {
                 error:'Error on the Server'
             }
@@ -80,11 +80,11 @@ router.get('/edit/:id',async(req,res,next)=>{
     try
     {
         const id = req.params.id;
-        const bookToEdit = await Book.findById(id);
+        const hobbyToEdit = await Book.findById(id);
         res.render("Books/edit",
             {
-                title: 'Edit Book',
-                Book: bookToEdit,
+                title: 'Edit Hobby',
+                HobbyList: hobbyToEdit,
                 displayName: req.user?req.user.displayName:""
             }
         )
@@ -101,14 +101,14 @@ router.post('/edit/:id',async(req,res,next)=>{
         let id = req.params.id;
         let updateBook = Book({
             "_id":id,
-            "name":req.body.name,
-            "author":req.body.author,
-            "published":req.body.published,
+            "hobbyname":req.body.hobbyname,
+            "category":req.body.category,
             "description":req.body.description,
-            "price":req.body.price
+            "averagecost":req.body.averagecost,
+            "interactiontype":req.body.interactiontype
         })
-        Book.findByIdAndUpdate(id,updateBook).then(()=>{
-            res.redirect("/books")
+        Book.findByIdAndUpdate(id,updatehobby).then(()=>{
+            res.redirect("/Hobbies")
         })
     }
     catch(err)
@@ -122,8 +122,8 @@ router.post('/edit/:id',async(req,res,next)=>{
 router.get('/delete/:id',async(req,res,next)=>{
     try{
         let id = req.params.id;
-        Book.deleteOne({_id:id}).then(()=>{
-            res.redirect("/books")
+        hobby.deleteOne({_id:id}).then(()=>{
+            res.redirect("/Hobbies")
         })
     }
     catch(err)
