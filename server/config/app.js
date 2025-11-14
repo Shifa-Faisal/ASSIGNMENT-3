@@ -40,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
-let booksRouter = require('../routes/book');
+let hobbiesRouter = require('../routes/hobby');
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
