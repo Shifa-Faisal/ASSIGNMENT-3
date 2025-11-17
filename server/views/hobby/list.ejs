@@ -3,7 +3,7 @@
 
 <main class="container">
     <div class="row">
-        <div class="offset-md-1 col-md-10">
+        <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
 
             <% if (typeof displayName === 'string' && displayName) { %>
@@ -23,6 +23,7 @@
                     <th class="text-center col-4">Description</th>
                     <th class="text-center col-1">Average Cost</th>
                     <th class="text-center col-1">Interaction Type</th>
+                    <th class="text-center col-1">Stars Of Joy</th>
                     <th class="text-center col-1"></th>
                     <th class="text-center col-1"></th>
                 </tr>
@@ -34,6 +35,7 @@
                     <td class="text-center col-4"><%= hobbyList[count].description %></td>
                     <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
                     <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
+                    <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>
                     
 
                         <td class="text-center col-1">
@@ -61,6 +63,7 @@
                     <th class="text-center col-4">Description</th>
                     <th class="text-center col-1">Average Cost</th>
                     <th class="text-center col-1">Interaction Type</th>
+                    <th class="text-center col-1">Stars Of Joy</th>
                 </tr>
 
                 <% for (let count = 0; count < hobbyList.length; count++) { %>
@@ -70,6 +73,7 @@
                     <td class="text-center col-4"><%= hobbyList[count].description %></td>
                     <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
                     <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
+                    <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>   
                     </tr>
                 <% } %>
 

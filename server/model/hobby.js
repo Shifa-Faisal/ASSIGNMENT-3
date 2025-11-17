@@ -4,13 +4,14 @@ let mongoose = require('mongoose')
 let hobbyModel = mongoose.Schema({
     hobbyname: String,
     category: String,
-    avgeragecost: String,
+    averagecost: Number,
     description: String,
-    interactiontype: String
+    interactiontype: String,
+    starsofjoyrating: Number
 },
 {
-    collection:"hobby"
+    collection:"Hobbies"
 }
 );
 
-module.exports = mongoose.model('hobby', hobbyModel);
+module.exports = mongoose.model('Hobbies', hobbyModel);

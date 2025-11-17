@@ -59,7 +59,8 @@ router.post('/add',async(req,res,next)=>{
             "category":req.body.category,
             "description":req.body.description,
             "averagecost":req.body.averagecost,
-            "interactiontype":req.body.interactiontype
+            "interactiontype":req.body.interactiontype,
+            "starsofjoyrating":req.body.starsofjoyrating
         })
         hobby.create(newhobby).then(()=>{
             res.redirect('/hobby')
@@ -105,7 +106,8 @@ router.post('/edit/:id',async(req,res,next)=>{
             "category":req.body.category,
             "description":req.body.description,
             "averagecost":req.body.averagecost,
-            "interactiontype":req.body.interactiontype
+            "interactiontype":req.body.interactiontype,
+            "starsofjoyrating":req.body.starsofjoyrating
         })
         hobby.findByIdAndUpdate(id,updatehobby).then(()=>{
             res.redirect("/hobby")
