@@ -6,15 +6,7 @@ var logger = require('morgan');
 // configuring Databases
 let mongoose = require('mongoose');
 let DB = require('./db');
-let session = require('express-session');
-let passport = require('passport');
-let passportLocal = require('passport-local');
-let localStrategy = passportLocal.Strategy;
-let flash = require('connect-flash');
-let cors = require('cors')
 var app = express();
-let userModel = require('../model/user');
-let User = userModel.User;
 // point mongoose to the DB URI
 mongoose.connect(DB.URI);
 let mongoDB = mongoose.connection;
@@ -22,22 +14,7 @@ mongoDB.on('error', console.error.bind('console','Connection Error'));
 mongoDB.once('open',()=>{
   console.log('Connected to the MongoDB');
 });
-// Set-up Express Session
-app.use(session({
-  secret:"Somesecret",
-  saveUninitialized:false,
-  resave:false
-}))
-// initialize flash
-app.use(flash());
-// user authentication
-passport.use(User.createStrategy());
-// serialize and deserialize the user information
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-// initialize the passport
-app.use(passport.initialize());
-app.use(passport.session());
+
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 let HobbiesRouter = require('../routes/hobby');

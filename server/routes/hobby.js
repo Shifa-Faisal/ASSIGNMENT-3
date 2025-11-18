@@ -3,14 +3,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 // connect to our hobby model
 let hobby = require('../model/hobby');
-function requireAuth(req,res,next)
-{
-    if(!req.isAuthenticated())
-    {
-        return res.redirect('/login')
-    }
-    next();
-}
+
 // GET route for displaying the data from DB --> Read Operation
 router.get('/',async(req,res,next)=>{
     try{
@@ -18,7 +11,7 @@ router.get('/',async(req,res,next)=>{
         res.render('hobby/list',{
             title:'Hobbies',
             hobbyList:hobbyList,
-            displayName: req.user?req.user.displayName:""
+
         })
     }
     catch(err)
@@ -36,8 +29,7 @@ router.get('/add',async(req,res,next)=>{
     try
     {
         res.render('hobby/add',{
-            title:'Add Hobby',
-            displayName: req.user?req.user.displayName:""
+            title:'Add Hobby'
         });
     }
     catch(err)
@@ -85,8 +77,7 @@ router.get('/edit/:id',async(req,res,next)=>{
         res.render("hobby/edit",
             {
                 title: 'Edit Hobby',
-                HobbyList: hobbyToEdit,
-                displayName: req.user?req.user.displayName:""
+                hobby: hobbyToEdit
             }
         )
     }

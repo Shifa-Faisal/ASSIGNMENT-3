@@ -6,16 +6,12 @@
         <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
 
-            <% if (typeof displayName === 'string' && displayName) { %>
-                <a href="/hobby/add" class="btn btn-primary" role="button">
-                    <i class="fas fa-plus-circle"></i> Add a Hobby
-                </a>
-            <% } %>
+            <a href="/hobby/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i> Add a Hobby
+            </a>
 
             <table class="table table-bordered table-striped table-hover">
 
-            <% if (typeof displayName === 'string' && displayName) { %>
-                
                 <!-- Header Row -->
                 <tr class="d-flex">
                     <th class="text-center col-2">Name</th>
@@ -36,48 +32,22 @@
                     <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
                     <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
                     <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>
-                    
 
-                        <td class="text-center col-1">
-                            <a href="/hobby/edit/<%= hobbyList[count]._id %>" 
-                               class="btn btn-primary btn-sm">
-                                <i class="fas fa-pencil-alt"></i> Edit
-                            </a>
-                        </td>
+                    <td class="text-center col-1">
+                        <a href="/hobby/edit/<%= hobbyList[count]._id %>" 
+                           class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Edit
+                        </a>
+                    </td>
 
-                        <td class="text-center col-1">
-                            <a href="/hobby/delete/<%= hobbyList[count]._id %>" 
-                               class="btn btn-danger btn-sm"> 
-                                <i class="fas fa-trash-alt"></i> Delete
-                            </a>
-                        </td>
-                    </tr>
-                <% } %>
-
-            <% } else { %>
-
-                <!-- Header Row -->
-                <tr class="d-flex">
-                    <th class="text-center col-2">Name</th>
-                    <th class="text-center col-2">Category</th>
-                    <th class="text-center col-4">Description</th>
-                    <th class="text-center col-1">Average Cost</th>
-                    <th class="text-center col-1">Interaction Type</th>
-                    <th class="text-center col-1">Stars Of Joy</th>
+                    <td class="text-center col-1">
+                        <a href="/hobby/delete/<%= hobbyList[count]._id %>" 
+                           class="btn btn-danger btn-sm"> 
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    </td>
                 </tr>
-
-                <% for (let count = 0; count < hobbyList.length; count++) { %>
-                    <tr class="d-flex">
-                    <td class="text-center col-2"><%= hobbyList[count].hobbyname %></td>
-                    <td class="text-center col-2"><%= hobbyList[count].category %></td>
-                    <td class="text-center col-4"><%= hobbyList[count].description %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>   
-                    </tr>
                 <% } %>
-
-            <% } %>
 
             </table>
         </div>
