@@ -1,46 +1,61 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="/">INFR3120</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <% if(title=="Home") { %>
-            <a class="nav-link active" aria-current="page" href="/home"><i class="fa-solid fa-lg fa-house"></i> Home</a>
-          <% } else { %>
-            <a class="nav-link" aria-current="page" href="/home"><i class="fa-solid fa-lg fa-house"></i> Home</a>
-          <% } %>
-        </li>
-        <li class="nav-item">
-          <% if(title=="About us") { %>
-            <a class="nav-link active" aria-current="page" href="/about"><i class="fa-solid fa-lg fa-circle-info"></i> About</a>
-          <% } else { %>
-            <a class="nav-link" aria-current="page" href="/about"><i class="fa-solid fa-lg fa-circle-info"></i> About</a>
-          <% } %>
-        </li>
-        <li class="nav-item">
-        <% if(title=="Hobbies") { %>
-          <a class="nav-link active" aria-current="page" href="/hobby"><i class="fa-solid fa-lg fa-book"></i> Hobbies</a>
-        <% } else { %>
-          <a class="nav-link" aria-current="page" href="/hobby"><i class="fa-solid fa-lg fa-book"></i> Hobbies</a>
-        <% } %>
-        </li>
-        <li class="nav-item">
-        <% if(title=="Add Hobby") { %>
-          <a class="nav-link active" aria-current="page" href="/WebProject/"><i class="fa-solid fa-lg fa-book"></i> Add Hobby</a>
-        <% } else { %>
-          <a class="nav-link" aria-current="page" href="/hobby/add"><i class="fa-solid fa-lg fa-book"></i> Add Hobby</a>
-        <% } %>
-        </li>
-        <li class="nav-item">
-          <% if(title=="Contact us") { %>
-            <a class="nav-link active" aria-current="page" href="/contact"><i class="fa-solid fa-lg fa-phone"></i> Contact us</a>
-          <% } else { %>
-            <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-lg fa-phone"></i> Contact us</a>
-          <% } %>
-        </li>
-    </div>
-  </div>
-</nav>
+<!-- New container for brand and tabs -->
+<div class="d-flex justify-content-between align-items-center" style= "background-color: mediumvioletred; padding: 10px;">
+  
+  <!-- Website name on the left -->
+  <a class="navbar-brand" href="/hobby" style="color: pink"> HobbyHub</a>
+  
+  <!-- Nav-tabs on the right -->
+  <ul class="nav nav-tabs">
+    <!-- Hobbies page link -->
+    <li class="nav-item">
+      <% if(title=="Hobbies") { %>
+        <a class="nav-link active" aria-current="page" href="/hobby" style="color: mediumvioletred;">
+          <i class="fa-solid fa-clipboard-list"></i> Hobbies
+        </a>
+      <% } else { %>
+        <a class="nav-link" href="/hobby" style="color: pink;">
+          <i class="fa-solid fa-clipboard-list"></i> Hobbies
+        </a>
+      <% } %>
+    </li>
+
+    <!-- About page link -->
+    <li class="nav-item">
+      <% if(title=="About us") { %>
+        <a class="nav-link active" aria-current="page" href="/about" style="color: mediumvioletred;">
+          <i class="fa-solid fa-info"></i> About
+        </a>
+      <% } else { %>
+        <a class="nav-link" href="/about" style="color: pink;">
+          <i class="fa-solid fa-info"></i> About
+        </a>
+      <% } %>
+    </li>
+
+    <!-- Add Hobby page link -->
+    <li class="nav-item">
+      <% if(title=="Add Hobby") { %>
+        <a class="nav-link active" aria-current="page" href="/hobby/add" style="color: mediumvioletred;">
+          <i class="fa-solid fa-plus"></i> Add Hobby
+        </a>
+      <% } else { %>
+        <a class="nav-link" href="/hobby/add" style="color: pink;">
+          <i class="fa-solid fa-plus"></i> Add Hobby
+        </a>
+      <% } %>
+    </li>
+
+    <!-- Contact us page link -->
+    <li class="nav-item">
+      <% if(title=="Contact us") { %>
+        <a class="nav-link active" aria-current="page" href="/contact" style="color: mediumvioletred;">
+          <i class="fa-solid fa-envelope"></i> Contact us
+        </a>
+      <% } else { %>
+        <a class="nav-link" href="/contact" style="color: pink;">
+          <i class="fa-solid fa-envelope"></i> Contact us
+        </a>
+      <% } %>
+    </li>
+  </ul>
+</div>

@@ -4,15 +4,12 @@ let DB = require('../config/db');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  res.redirect('/hobby');
 });
 
-/* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
 
-/* GET About page. */
+
+/* GET about page. */
 router.get('/about', function(req, res, next) {
   res.render('index', { title: 'About us' });
 });
@@ -22,7 +19,7 @@ router.get('/products', function(req, res, next) {
   res.render('index', { title: 'Products' });
 });
 
-/* GET home page. */
+/* GET contact page. */
 router.get('/contact', function(req, res, next) {
   res.render('index', { title: 'Contact us' });
 });
