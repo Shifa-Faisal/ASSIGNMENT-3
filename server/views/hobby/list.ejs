@@ -48,7 +48,8 @@
 
                     <td class="text-center col-1">
                         <a href="/hobby/delete/<%= hobbyList[count]._id %>" 
-                           class="btn btn-danger btn-sm"> 
+                           class="btn btn-danger btn-sm"
+                           onclick= "return confirm ('Are you sure you want to delete this HOBBY?');">
                             <i class="fas fa-trash-alt"></i> Delete
                         </a>
                     </td>
