@@ -1,6 +1,7 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
 
+<!-- Styling for the Edit Hobby page -->
 <style>
     body {
         background-color: #BFAE99;
@@ -16,6 +17,7 @@ h1 {
         color: #4D4339;
     }
 
+    /* Button Styles */
     .btn-primary {
         background-color: #4D4339;
         color: #D9D0C7;
@@ -31,6 +33,7 @@ h1 {
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
+            <!-- Form to edit an existing hobby -->
             <form class="form" method="post">
                 <div class="form-group">
                     <label for="hobbynameTextField">Hobby Name</label>
@@ -43,6 +46,7 @@ h1 {
                 </div>
                 <br> 
 
+                <!-- Dropdown for selecting hobby category -->
                     <div class="form-group">
                     <label for="category">Category</label>
                     <select class="form-control" id="category" name="category" required>
@@ -62,6 +66,7 @@ h1 {
                 </div>
                 <br>
 
+                <!-- Text area for hobby description -->
                 <div class="form-group">
                     <label for="descriptionTextArea">Hobby Description</label>
                     <textarea type="text" class="form-control"
@@ -73,6 +78,7 @@ h1 {
                 </div>
                 <br>
 
+                <!-- Input for average cost of the hobby -->
                 <div type="number" class="form-group">
                     <label for="averagecostTextField">Average Cost</label>
                     <input type="text" class="form-control"
@@ -86,6 +92,7 @@ h1 {
                 </div>
                 <br> 
 
+                <!-- Dropdown for selecting interaction type -->
                 <div class="form-group">
                     <label for="interactiontypeSelect">Interaction Type</label>
                     <select class="form-control" id="interactiontype" name="interactiontype" required>
@@ -98,6 +105,7 @@ h1 {
                 </div>
                 <br>
 
+                <!-- Input for stars of joy rating -->
                 <div class="form-group">
                     <label for="starsofjoyratingTextField">Stars Of Joy (rating out of 5)</label>
                     <input type="text" class="form-control"
@@ -109,6 +117,7 @@ h1 {
                 </div>
                 <br>
 
+                <!-- Submit and Cancel buttons -->
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit
                 </button>

@@ -1,6 +1,7 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
 
+<!-- Styling for add a hobby page -->
 <style>
     body {
         background-color: #BFAE99;
@@ -15,6 +16,7 @@
         color: white;
     }
     
+    /* Button Styling */
     .btn-primary {
         background-color: #4D4339;
         color: #D9D0C7;
@@ -30,6 +32,7 @@
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
+            <!-- Form for adding a new hobby -->
             <form class="form" method="post">
                 <div class="form-group">
                     <label for="nameTextField"> Hobby Name</label>
@@ -40,6 +43,7 @@
                 </div>
                 <br>
 
+                <!-- Dropdown for selecting category -->
                 <div class="form-group">
                     <label for="categorySelect">Category</label>
                     <select class="form-control" id="categorySelect" name="category" required>
@@ -50,13 +54,14 @@
                     <option value="Outdoors">Outdoors</option>
                     <option value="Gaming">Gaming</option>
                     <option value="Coking&Baking">Cooking & Baking</option>
-                    <option value="Technology&Coding">Technology $ Coding</option>    
+                    <option value="Technology&Coding">Technology & Coding</option>    
                     <option value="Collecting">Collecting</option>
                     <option value="Other">Other</option>
                     </select>
                 </div>
                 <br>
 
+                <!-- Description input field -->
                 <div class="form-group">
                     <label for="description">Description</label>
                     <input type="text" class="form-control"
@@ -66,6 +71,7 @@
                 </div>
                 <br>
 
+                <!-- Average Cost input field -->
                 <div class="form-group">
                     <label for="averagecostTextField">Average Cost ($)</label>
                     <input type="number" class="form-control"
@@ -75,8 +81,9 @@
                 </div>
                 <br>
 
+                <!-- Interaction Type dropdown -->
                 <div class="form-group">
-                    <label for="interactiontype">Category</label>
+                    <label for="interactiontype">Interaction Type</label>
                     <select class="form-control" id="interactiontype" name="interactiontype" required>
                     <option value="" disabled selected>Select an interaction type (amount of people needed)</option>
                     <option value="Solo">Solo</option>
@@ -86,6 +93,7 @@
                 </div>
                 <br>
 
+                <!-- Stars Of Joy (rating) input field -->
                 <div class="form-group">
                     <label for="starsofjoyratingTextField">Stars Of Joy (rating out of 5)</label>
                     <input type="number" class="form-control"
@@ -96,6 +104,7 @@
                 
                 <br> 
 
+                <!-- Submit and Cancel buttons -->
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit
                 </button>

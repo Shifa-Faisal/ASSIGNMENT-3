@@ -1,6 +1,6 @@
 let mongoose = require('mongoose')
 
-// create a model class
+// Create a model class for hobby
 let hobbyModel = mongoose.Schema({
     hobbyname: String,
     category: String,
@@ -10,6 +10,7 @@ let hobbyModel = mongoose.Schema({
     starsofjoyrating: Number
 },
 {
+// Link collection in MongoDB
     collection:"Hobbies"
 }
 );

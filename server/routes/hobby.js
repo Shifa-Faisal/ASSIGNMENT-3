@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
-// connect to our hobby model
+// Connect to our hobby model
 let hobby = require('../model/hobby');
 
 // GET route for displaying the data from DB --> Read Operation
@@ -46,6 +46,7 @@ router.get('/add',async(req,res,next)=>{
 router.post('/add',async(req,res,next)=>{
     try
     {
+        // Create a new hobby object
         let newhobby = hobby({
             "hobbyname":req.body.hobbyname,
             "category":req.body.category,
@@ -72,6 +73,7 @@ router.post('/add',async(req,res,next)=>{
 router.get('/edit/:id',async(req,res,next)=>{
     try
     {
+        // Get the id
         const id = req.params.id;
         const hobbyToEdit = await hobby.findById(id);
         res.render("hobby/edit",
@@ -90,6 +92,7 @@ router.get('/edit/:id',async(req,res,next)=>{
 // POST route for processing the Edit Page --> Update Operation
 router.post('/edit/:id',async(req,res,next)=>{
     try{
+        // Edit the data id
         let id = req.params.id;
         let updatehobby = hobby({
             "_id":id,
@@ -114,6 +117,7 @@ router.post('/edit/:id',async(req,res,next)=>{
 // GET route to perform Delete Operation
 router.get('/delete/:id',async(req,res,next)=>{
     try{
+        // Delete the data id
         let id = req.params.id;
         hobby.deleteOne({_id:id}).then(()=>{
             res.redirect("/hobby")
