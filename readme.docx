@@ -1,0 +1,53 @@
+ReadMe File - ASSIGNMENT 3
+---------------------------------
+---------------------------------
+
+Student Portfolio Website - Javascript, HTML, CSS
+Course: INFR 3120 - Web and Scripting Programming at Ontario Tech University
+Student: Shifa Faisal
+
+
+Link to website: 
+Link to Github: https://github.com/Shifa-Faisal/ASSIGNMENT-3.git 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Project Overview -
+HobbyHub, a website built using Node,js, Javascript, HTML5, EJS templating and CSS3. Allows users to manage hobbies by adding, viewing, editing and deleting hobbies (data entries). The website includes separate pages for displaying all data entries, adding data entries, about the company and contacting the company. 
+        Hobbies page
+        About page
+        Add Hobby Page
+        Contact page
+
+-------------------------------------------------------------------------------------------------------------------
+Structure -
+The project is organized into separate HTML, EJS, Node.js and JS files for the content contained in the webpage.
+       * Node_modules - npm dependencies
+       * Public - assets and files available to browsers
+           * Assets - media
+           * Scripts - client side files
+       * Server - data and database files
+           * Routes - route handlers
+               * Model - data schemas for mongoDB 
+               * Config - website and database settings 
+               * Views - contains ejs templates 
+                   * Hobby - templates for pages
+                   * Partials - reusable components 
+       * App - express configurations 
+       * Server - starts Node server
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Color Theme -
+Used Adobe Color Palette to find a colour scheme that brought developer’s design to life. Wanted the website to have a calm and welcoming atmosphere. Use of dark and light shades provide a balance.
+
+------------------------------------------------------------
+Colour Scheme - 
+#BFAE99, #40352C, #A68C76, #D9D0C7, #73645C 
+
+-------------------------------------------------------------------
+Credits -
+        Professor Ahmed Munieb Sheikh - Code provided in class
+        Expressjs.com - To create the base of website
+        Bootstrap.com - navbar and styling of website 
+        Shifa Faisal - Contact: shifa.faisal@ontariotechu.net
+
+
