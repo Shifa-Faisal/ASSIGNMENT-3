@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 /* GET about page. */
 router.get('/about', function(req, res, next) {
-  res.render('index', { title: 'About us' });
+  res.render('about', { title: 'About us' });
 });
 
 /* GET products page. */
@@ -20,7 +20,7 @@ router.get('/products', function(req, res, next) {
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
-  res.render('index', { title: 'Contact us' });
+  res.render('contact', { title: 'Contact' });
 });
 
 module.exports = router;

@@ -1,26 +1,42 @@
-<%- include partials/header %>
-<%- include partials/main_nav %>
-
+<%- include ./partials/header %>
+<%- include ./partials/main_nav %>
 
 <style>
     body {
         background-color: hotpink;
-}
+        font-family: cursive;
+    }
+
+    h1 {
+        color: lightpink;
+        text-align: center;
+    }
+    h2 {
+        color: pink;
+        text-align: left;
+    } 
+
+    p {
+        font-size: 18px;
+        color: white;
+    }
+
+    .projectbox {
+        border-radius: 10px;
+        padding: 25px;
+        background-color: deeppink; 
+        margin: 25px auto;
+        width: 90%;
+    }
 </style>
 
-
-<div class="container py-4">
-
-  <p>If you have any feedback, questions, or concerns, feel free to reach out to the HobbyHub team.</p>
-  <p>You can email us at:</p>
-
-  <div class="contact-emails">
+<h1>Contact HobbyHub<h1>
+<div class="projectbox">
+    <p>If you have any feedback, questions, or concerns, feel free to reach out to the HobbyHub team.</p>
+    <p>You can email us at:</p>
     <p><i class="fa-regular fa-envelope"></i> <a href="mailto:Shifa.faisal@ontariotechu.net">Shifa.faisal@ontariotechu.net</a></p>
-  </div>
-
-  <br> 
-  <p><i class="fa-solid fa-location-dot"></i> 2000 Simcoe St N, Oshawa ON L1G0C5</p>
-
+    <br>
+    <p><i class="fa-solid fa-location-dot"></i> 2000 Simcoe St N, Oshawa ON L1G0C5</p>
 </div>
 
-<%- include partials/footer %>
+<%- include ./partials/footer %>

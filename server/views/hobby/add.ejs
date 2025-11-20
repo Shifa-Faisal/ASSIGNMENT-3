@@ -4,7 +4,16 @@
 <style>
     body {
         background-color: hotpink;
+        font-family:cursive;
 }
+    h1 {
+        color: deeppink;
+    }
+
+    label, p {
+        font-size: 18px;
+        color: white;
+    }
 </style>
 
 <div class="container">
@@ -19,13 +28,25 @@
                     placeholder="Enter name of hobby"
                     name="hobbyname" required>
                 </div>
+                <br>
+
                 <div class="form-group">
-                    <label for="categoryTextField">Category</label>
-                    <input type="text" class="form-control"
-                    id="categoryTextField"
-                    placeholder="Enter the hobby category"
-                    name="category" required>
+                    <label for="categorySelect">Category</label>
+                    <select class="form-control" id="categorySelect" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Art">Art</option>
+                    <option value="Music">Music</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Outdoors">Outdoors</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Coking&Baking">Cooking & Baking</option>
+                    <option value="Technology&Coding">Technology $ Coding</option>    
+                    <option value="Collecting">Collecting</option>
+                    <option value="Other">Other</option>
+                    </select>
                 </div>
+                <br>
+
                 <div class="form-group">
                     <label for="description">Description</label>
                     <input type="text" class="form-control"
@@ -33,6 +54,8 @@
                     placeholder="Enter the description of the hobby"
                     name="description" required>
                 </div>
+                <br>
+
                 <div class="form-group">
                     <label for="averagecostTextField">Average Cost ($)</label>
                     <input type="number" class="form-control"
@@ -40,21 +63,29 @@
                         placeholder="Enter the average cost of the hobby"
                         name="averagecost" required min="0" step="1">
                 </div>
+                <br>
+
                 <div class="form-group">
-                    <label for="priceTextField">Interaction Type</label>
-                    <input type="text" class="form-control"
-                    id="InteractiontypeTextField"
-                    placeholder="Enter the number of people who can interact in this hobby"
-                    name="interactiontype" required>
+                    <label for="interactiontype">Category</label>
+                    <select class="form-control" id="interactiontype" name="interactiontype" required>
+                    <option value="" disabled selected>Select an interaction type (amount of people needed)</option>
+                    <option value="Solo">Solo</option>
+                    <option value="Partner">Partner</option>
+                    <option value="Group">Group</option>
+                    </select>
                 </div>
+                <br>
+
                 <div class="form-group">
                     <label for="starsofjoyratingTextField">Stars Of Joy (rating out of 5)</label>
                     <input type="number" class="form-control"
                         id="starsofjoyratingTextField"
                         placeholder="Enter the stars of joy (rating) for the hobby"
                         name="starsofjoyrating" required min="0" max="5" step="1">
-                </div
-                <br>
+                </div>
+                
+                <br> 
+
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit
                 </button>

@@ -4,7 +4,17 @@
 <style>
     body {
         background-color: hotpink;
+        font-family:cursive;
 }
+
+h1 {
+    color: deeppink;    
+}
+
+    label, p {
+        font-size: 18px;
+        color: white;
+    }
 </style>
 
 <div class="container">
@@ -21,15 +31,27 @@
                     value="<%= hobby.hobbyname%>"
                     required>
                 </div>
-                <div class="form-group">
-                    <label for="categoryTextField">Category</label>
-                    <input type="text" class="form-control"
-                    id="categoryTextField"
-                    placeholder="Enter the hobby category"
-                    name="category" 
-                    value="<%= hobby.category%>"
-                    required>
+                <br> 
+
+                    <div class="form-group">
+                    <label for="category">Category</label>
+                    <select class="form-control" id="category" name="category" required>
+                        <option value="" disabled>Select the category of hobby</option>
+                        <option value="Art" <%= hobby.category === 'Art' ? 'selected' : '' %>>Art</option>
+                        <option value="Music" <%= hobby.category === 'Music' ? 'selected' : '' %>>Music</option>
+                        <option value="Sports" <%= hobby.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+                        <option value="Outdoors" <%= hobby.category === 'Outdoors' ? 'selected' : '' %>>Outdoors</option>
+                        <option value="Gaming" <%= hobby.category === 'Gaming' ? 'selected' : '' %>>Gaming</option>
+                        <option value="Coking&Baking" <%= hobby.category === 'Coking&Baking' ? 'selected' : '' %>>Cooking & Baking</option>
+                        <option value="Technology&Coding" <%= hobby.category === 'Technology&Coding' ? 'selected' : '' %>>Technology & Coding</option>
+                        <option value="Collecting" <%= hobby.category === 'Collecting' ? 'selected' : '' %>>Collecting</option>
+                        <option value="Other" <%= hobby.category === 'Other' ? 'selected' : '' %>>Other</option>
+            
+                        <option value="Other" <%= !['Art','Music','Sports', 'Outdoors', 'Gaming', 'Cooking&Baking', 'Technology&Coding', 'Collecting'].includes(hobby.category) ? 'selected' : '' %>>Other</option>
+                    </select>
                 </div>
+                <br>
+
                 <div class="form-group">
                     <label for="descriptionTextArea">Hobby Description</label>
                     <textarea type="text" class="form-control"
@@ -39,6 +61,8 @@
                     <%= hobby.description%>
                 </textarea>
                 </div>
+                <br>
+
                 <div type="number" class="form-group">
                     <label for="averagecostTextField">Average Cost</label>
                     <input type="text" class="form-control"
@@ -50,18 +74,20 @@
                     step=" "1"
                     required>
                 </div>
-                <div type="number" class="form-group">
-                    <label for="interactiontypeTextField">Interaction Type</label>
-                    <input type="text" class="form-control"
-                    id="interactiontypeTextField"
-                    placeholder="Enter the number of people required to do the hobby"
-                    name="interactiontype" 
-                    value="<%= hobby.interactiontype%>"
-                    min="0"
-                    max="5"
-                    step="1"
-                    required>
+                <br> 
+
+                <div class="form-group">
+                    <label for="interactiontypeSelect">Interaction Type</label>
+                    <select class="form-control" id="interactiontype" name="interactiontype" required>
+                        <option value="" disabled>Select number of people required</option>
+                        <option value="Solo" <%= hobby.interactiontype === 'Solo' ? 'selected' : '' %>>Solo</option>
+                        <option value="Partner" <%= hobby.interactiontype === 'Partner' ? 'selected' : '' %>>Partner</option>
+                        <option value="Group" <%= hobby.interactiontype === 'Group' ? 'selected' : '' %>>Group</option>
+                        <option value="Other" <%= !['Solo','Partner','Group'].includes(hobby.interactiontype) ? 'selected' : '' %>>Other</option>
+                    </select>
                 </div>
+                <br>
+
                 <div class="form-group">
                     <label for="starsofjoyratingTextField">Stars Of Joy (rating out of 5)</label>
                     <input type="text" class="form-control"
@@ -72,6 +98,7 @@
                     required>
                 </div>
                 <br>
+
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit
                 </button>
