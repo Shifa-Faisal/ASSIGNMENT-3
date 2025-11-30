@@ -1,10 +1,11 @@
-<!-- New container for brand and tabs -->
-<div class="d-flex justify-content-between align-items-center" style= "background-color: #73645C; padding: 10px;">
+<!-- Container for brand and tabs -->
+<div class="d-flex justify-content-between align-items-center" style="background-color: #73645C; padding: 10px;">
 
-  
   <!-- Nav-tabs on the right -->
   <ul class="nav nav-tabs">
-    
+
+    <% if (typeof displayName === 'string' && displayName) { %>
+
     <!-- Hobbies page link -->
     <li class="nav-item">
       <% if(title=="Hobbies") { %>
@@ -56,7 +57,26 @@
         </a>
       <% } %>
     </li>
+
+    <!-- Logout link -->
+    <li class="nav-item ms-lg-3">
+      <a href="/logout" class="nav-link">
+        <i class="fas fa-lg fa-sign-out-alt"></i> Logout
+      </a>
+    </li>
+
+    <% } else { %>
+    <!-- Login page link -->
+    <li class="nav-item">
+      <a href="/login" class="nav-link">
+        <i class="fas fa-lg fa-sign-in-alt"></i> Login
+      </a>
+    </li>
+    <% } %>  
+
   </ul>
-    <!-- Website name on the left -->
-    <a class="navbar-brand" href="/hobby" style="color: white; font-size: 28px;">HobbyHub</a>
+
+  <!-- Website name on the left -->
+  <a class="navbar-brand" href="/hobby" style="color: white; font-size: 28px;">HobbyHub</a>
 </div>
+

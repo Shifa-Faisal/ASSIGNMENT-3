@@ -4,6 +4,16 @@ let mongoose = require('mongoose');
 // Connect to our hobby model
 let hobby = require('../model/hobby');
 
+function requireAuth(req,res,next)
+{
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
+    next();
+}
+
+
 // GET route for displaying the data from DB --> Read Operation
 router.get('/',async(req,res,next)=>{
     try{
@@ -53,8 +63,7 @@ router.post('/add',async(req,res,next)=>{
             "description":req.body.description,
             "averagecost":req.body.averagecost,
             "interactiontype":req.body.interactiontype,
-            "starsofjoyrating":req.body.starsofjoyrating
-        })
+            "starsofjoyrating":req.body.starsofjoyrating })
         hobby.create(newhobby).then(()=>{
             res.redirect('/hobby')
         });
@@ -76,12 +85,11 @@ router.get('/edit/:id',async(req,res,next)=>{
         // Get the id
         const id = req.params.id;
         const hobbyToEdit = await hobby.findById(id);
-        res.render("hobby/edit",
-            {
-                title: 'Edit Hobby',
-                hobby: hobbyToEdit
-            }
-        )
+        res.render("hobby/edit", {
+            displayName: req.user ? req.user.displayName : "",
+            title: 'Edit Hobby',
+            hobby: hobbyToEdit
+        });
     }
     catch(err)
     {
@@ -120,7 +128,7 @@ router.get('/delete/:id',async(req,res,next)=>{
         // Delete the data id
         let id = req.params.id;
         hobby.deleteOne({_id:id}).then(()=>{
-            res.redirect("/hobby")
+            res.redirect("/hobby");
         })
     }
     catch(err)

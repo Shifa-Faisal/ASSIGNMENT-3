@@ -1,33 +1,12 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/main_nav.ejs %>
 
-<!-- Styling for the Hobby List page -->
 <style>
-    body {
-        background-color: #BFAE99;
-        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-}
-
-    h1 {
-        color: #4D4339 ;        
-    }   
-
-    p {
-        font-size: 18px;
-        color: #4D4339;
-    }
-
-    /* Button Styles */
-    .btn-primary {
-        background-color: #4D4339;
-        color: #D9D0C7;
-    }
-    
-    .btn-danger {
-        background-color: #A68C76;
-        color: #4D4339;
-    }
-
+    body { background-color: #BFAE99; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+    h1 { color: #4D4339; }
+    p { font-size: 18px; color: #4D4339; }
+    .btn-primary { background-color: #4D4339; color: #D9D0C7; }
+    .btn-danger { background-color: #A68C76; color: #4D4339; }
 </style>
 
 <main class="container">
@@ -35,59 +14,83 @@
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
 
-            <!-- Button to add a new hobby -->
-            <a href="/hobby/add" class="btn btn-primary" role="button">
-                <i class="fas fa-plus-circle"></i> Add a Hobby
-            </a>
-            <br> 
+            <% if (typeof displayName === 'string' && displayName) { %>
+                <a href="/hobby/add" class="btn btn-primary" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a Media
+                </a>
+                <a href="/hobby/add" class="btn btn-primary" role="button">
+                    <i class="fas fa-plus-circle"></i> Add a Hobby
+                </a>
+                <br><br>
 
-            <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr class="d-flex">
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">Category</th>
+                        <th class="text-center col-3">Description</th>
+                        <th class="text-center col-1">Average Cost</th>
+                        <th class="text-center col-1">Interaction Type</th>
+                        <th class="text-center col-1">Stars Of Joy</th>
+                        <th class="text-center col-1"></th>
+                        <th class="text-center col-1"></th>
+                    </tr>
 
-                <!-- Header Row -->
-                 <!-- Column sizing -->
-                <tr class="d-flex">
-                    <th class="text-center col-2">Name</th>
-                    <th class="text-center col-2">Category</th>
-                    <th class="text-center col-3">Description</th>
-                    <th class="text-center col-1">Average Cost</th>
-                    <th class="text-center col-1">Interaction Type</th>
-                    <th class="text-center col-1">Stars Of Joy</th>
-                    <th class="text-center col-1"></th>
-                    <th class="text-center col-1"></th>
-                </tr>
+                    <% for (let count = 0; count < hobbyList.length; count++) { %>
+                        <tr class="d-flex"> 
+                            <td class="text-center col-2"><%= hobbyList[count].hobbyname %></td>
+                            <td class="text-center col-2"><%= hobbyList[count].category %></td>
+                            <td class="text-center col-3"><%= hobbyList[count].description %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>
 
-                <% for (let count = 0; count < hobbyList.length; count++) { %>
-                <tr class="d-flex"> 
-                    <td class="text-center col-2"><%= hobbyList[count].hobbyname %></td>
-                    <td class="text-center col-2"><%= hobbyList[count].category %></td>
-                    <td class="text-center col-3"><%= hobbyList[count].description %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
-                    <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>
+                            <td class="text-center col-1">
+                                <a href="/hobby/edit/<%= hobbyList[count]._id %>" 
+                                   class="btn btn-primary btn-sm">
+                                    <i class="fas fa-pencil-alt"></i> Edit
+                                </a>
+                            </td>
 
-                    <!-- Edit and Delete Buttons -->
-                    <td class="text-center col-1">
-                        <a href="/hobby/edit/<%= hobbyList[count]._id %>" 
-                           class="btn btn-primary btn-sm">
-                            <i class="fas fa-pencil-alt"></i> Edit
-                        </a>
-                    </td>
+                            <td class="text-center col-1">
+                                <a href="/hobby/delete/<%= hobbyList[count]._id %>" 
+                                   class="btn btn-danger btn-sm"
+                                   onclick="return confirm('Are you sure you want to delete this HOBBY?');">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </table>
 
-                    <td class="text-center col-1">
-                        <a href="/hobby/delete/<%= hobbyList[count]._id %>" 
-                           class="btn btn-danger btn-sm"
-                           onclick= "return confirm ('Are you sure you want to delete this HOBBY?');">
-                            <i class="fas fa-trash-alt"></i> Delete
-                        </a>
-                    </td>
-                </tr>
-                <% } %>
+            <% } else { %>
 
-            </table>
+                <table class="table table-bordered table-striped table-hover">
+                    <tr class="d-flex">
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">Category</th>
+                        <th class="text-center col-3">Description</th>
+                        <th class="text-center col-1">Average Cost</th>
+                        <th class="text-center col-1">Interaction Type</th>
+                        <th class="text-center col-1">Stars Of Joy</th>
+                    </tr>
+
+                    <% for (let count = 0; count < hobbyList.length; count++) { %>
+                        <tr class="d-flex"> 
+                            <td class="text-center col-2"><%= hobbyList[count].hobbyname %></td>
+                            <td class="text-center col-2"><%= hobbyList[count].category %></td>
+                            <td class="text-center col-3"><%= hobbyList[count].description %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].averagecost %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].interactiontype %></td>
+                            <td class="text-center col-1"><%= hobbyList[count].starsofjoyrating %></td>
+                        </tr>
+                    <% } %>
+                </table>
+
+            <% } %>
         </div>
     </div>
 </main>
 
 <br><br>
-
 <%- include ../partials/footer.ejs %>
+
